@@ -159,9 +159,9 @@ button:hover {
 }
 
 .seat-card {
-  width: 34px;
-  height: 48px;
-  border-radius: 6px;
+  width: 58px;
+  height: 80px;
+  border-radius: 4px;
   border: 2px solid var(--accent);
   display: flex;
   align-items: center;
@@ -224,7 +224,7 @@ button:hover {
   min-height: 42%;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -246,7 +246,7 @@ button:hover {
   border: none;
   font-size: 1rem;
   padding: 0.75rem 1.5rem;
-  border-radius: 999px;
+  border-radius: 4px;
 }
 
 .empty {
@@ -266,11 +266,11 @@ poker-card {
 }
 
 .poker-card-btn {
-  width: 56px;
-  height: 80px;
+  width: 72px;
+  height: 96px;
   font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 10px;
+  border-radius: 4px;
   border: 2px solid var(--border);
   background: var(--surface);
   color: var(--text);
