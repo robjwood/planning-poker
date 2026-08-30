@@ -1,0 +1,315 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f7f7fa;
+  --surface: #ffffff;
+  --text: #1a1a1f;
+  --muted: #6b6b76;
+  --border: #e2e2e8;
+  --accent: #5b5bd6;
+  --accent-text: #ffffff;
+  --success: #1f9d55;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15151b;
+    --surface: #1f1f27;
+    --text: #f1f1f5;
+    --muted: #9797a3;
+    --border: #303038;
+    --accent: #8080ee;
+    --accent-text: #15151b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.6rem 1.1rem;
+}
+
+button:hover {
+  border-color: var(--accent);
+}
+
+/* Home screen */
+.home {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.home p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+#create {
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Join gate */
+.join-gate {
+  max-width: 360px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.join-gate .room-id {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.join-gate input {
+  display: block;
+  width: 100%;
+  font: inherit;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.join-gate #join {
+  width: 100%;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+}
+
+/* Room */
+.room header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.link-btn {
+  border: none;
+  background: none;
+  color: var(--muted);
+  text-decoration: underline;
+  padding: 0.25rem;
+}
+
+/* Table */
+.table-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin: 1.5rem 0 2rem;
+}
+
+.seats {
+  position: absolute;
+  inset: 0;
+}
+
+.seat {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100px;
+}
+
+.seat-card {
+  width: 34px;
+  height: 48px;
+  border-radius: 6px;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.seat-card.empty {
+  border-color: var(--border);
+}
+
+.seat-card.voted {
+  background: var(--accent);
+}
+
+.seat-card.revealed {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+.seat-person {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.seat-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px;
+}
+
+.seat-host-crown {
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.you-tag {
+  font-size: 0.65rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 0.4rem;
+}
+
+.table {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56%;
+  min-height: 42%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.wait-msg {
+  color: var(--muted);
+  margin: 0;
+}
+
+.reveal-btn,
+.reset-btn {
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+poker-card {
+  display: block;
+}
+
+.poker-card-btn {
+  width: 56px;
+  height: 80px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.poker-card-btn.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.poker-card-btn.small {
+  width: 34px;
+  height: 48px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: default;
+}
+
+/* Results (shown inside the table, once revealed) */
+.consensus-banner {
+  color: var(--success);
+  font-weight: 600;
+  margin: 0;
+}
+
+.average {
+  color: var(--muted);
+  margin: 0;
+}
+
+.range {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.range-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
